@@ -1,0 +1,27 @@
+# Gitignore for RenderMind addon
+__pycache__/
+*.pyc
+*.pyo
+.env
+.DS_Store
+Thumbs.db
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Models (too large for git)
+models/*.bin
+models/*.safetensors
+
+# IDE
+.vscode/
+.idea/
+
+# Blender backup files
+*.blend1
+*.blend2
+
+# Logs
+*.log

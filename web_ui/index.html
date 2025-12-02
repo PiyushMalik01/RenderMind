@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RenderMind Copilot - AI Assistant for Blender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="icon">🎨</span>
+                    <h1>RenderMind Copilot</h1>
+                </div>
+                <div class="connection-status">
+                    <span id="status-indicator" class="status-indicator disconnected"></span>
+                    <span id="status-text">Disconnected</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <main class="chat-container">
+            <div id="chat-messages" class="chat-messages">
+                <!-- Welcome message -->
+                <div class="message system-message">
+                    <div class="message-content">
+                        <p><strong>👋 Welcome to RenderMind!</strong></p>
+                        <p>I'm your AI assistant for Blender. Tell me what you want to create and I'll generate the code and execute it in your scene!</p>
+                        <p class="hint">Try: "Create a red sphere" or "Add a glass material"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="quick-actions">
+                    <button class="quick-btn" onclick="quickAction('Create a ')">
+                        <span>🎲</span> Create
+                    </button>
+                    <button class="quick-btn" onclick="quickAction('Modify the selected object to ')">
+                        <span>✏️</span> Modify
+                    </button>
+                    <button class="quick-btn" onclick="quickAction('Add a material that ')">
+                        <span>🎨</span> Material
+                    </button>
+                    <button class="quick-btn" onclick="clearChat()">
+                        <span>🗑️</span> Clear
+                    </button>
+                </div>
+                
+                <div class="input-wrapper">
+                    <textarea 
+                        id="user-input" 
+                        placeholder="Describe what you want to create..."
+                        rows="3"
+                        maxlength="4096"
+                    ></textarea>
+                    <div class="input-footer">
+                        <div class="left-actions">
+                            <button id="voice-btn" class="voice-btn" onclick="toggleVoiceInput()" title="Voice input">
+                                <span id="voice-icon">🎤</span>
+                            </button>
+                            <span id="char-count" class="char-count">0 / 4096</span>
+                        </div>
+                        <button id="send-btn" class="send-btn" onclick="sendMessage()">
+                            <span>Send</span>
+                            <span class="icon">▶</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
